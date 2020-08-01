@@ -3,3 +3,4 @@
   
 # List of Programmes
  1. Hello.py
+ 2. Premitive data types of Python visited in data-structures.py
