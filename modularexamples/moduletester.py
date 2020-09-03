@@ -1,5 +1,5 @@
 from modularexamples.module1 import fib,fib2 #fib and fib2 are registered in the local symbol table
-
+import sys
 fib(10)
 print(fib2(20))
 
@@ -8,3 +8,4 @@ def fib(n): #local symbol table gets redefined for fib()
 fib(10)
 from modularexamples.module1 import * #the symbol table is updated again
 fib(20)
+

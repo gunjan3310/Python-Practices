@@ -20,4 +20,5 @@ if __name__ == "__main__": #when this module is executed this main will be calle
     print("Ok the module is run")
     for n in sys.argv[1:]:
         fib(int(n))
-
+def function_call():
+    print("Printing a function from module1")
