@@ -12,7 +12,9 @@ def episodeList():
 
                 line_count += 1
             else:
-                episodeNames.append(row[2])
+                r = row[2]
+                strippedR = r.replace('"','')
+                episodeNames.append(strippedR)
                 line_count += 1
 
 filePathsToChange = []
@@ -32,18 +34,25 @@ def main():
                     episodetitle = episodeNames[episodeCounter-1]
                     try:
                         mkvFile = filterstring.filterMKV(episode)
-                        print(f"{folder}/{episode} will change to -> ")
                         PREVIOUSPATH = f"{folder}/{episode}"
-                        print(f"\r{folder}/{episodetitle} - E{episodeCounter}")
-                        EPISODERENAMEDPATH = f"\r{folder}/{episodetitle} - E{episodeCounter}.mkv"
+                        _mkv = ".mkv"
 
+                        EPISODERENAMEDPATH = folder+'/'+episodetitle+' - E'+episodeCounter+_mkv
+
+                        print(f"{folder}/{episode} will changed to -> ")
+                        print(f"\r{folder}/{episodetitle} - E{episodeCounter}{_mkv}")
                         #not working
                         #os.rename(PREVIOUSPATH,EPISODERENAMEDPATH)
+                        try:
+                            os.system(f'mv "{PREVIOUSPATH}" "{EPISODERENAMEDPATH}"')
+
+                        except:
+                            print("Error renaming")
 
                         episodeCounter += 1
                     except:
                         continue
-                        print("")
+                        print("Error ")
                     #renamed file string
 
 
